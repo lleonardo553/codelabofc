@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CodeLabOFC — Ideias e projetos de tecnologia</title>
+<meta name="description" content="CodeLabOFC publica ideias e projetos tecnológicos: aplicativos, extensões de navegador, gerador de QR Code personalizado e ferramentas que resolvem problemas reais.">
+<meta name="author" content="CodeLabOFC">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light dark">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="CodeLabOFC">
+<meta property="og:title" content="CodeLabOFC — Ideias e projetos de tecnologia">
+<meta property="og:description" content="Aplicativos, extensões de navegador e ferramentas que resolvem problemas reais — do primeiro rascunho ao produto funcionando.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CodeLabOFC — Ideias e projetos de tecnologia">
+<meta name="twitter:description" content="Aplicativos, extensões de navegador e ferramentas que resolvem problemas reais.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d0d12'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 22 15 32l9 10'/%3E%3Cpath d='M40 22l9 10-9 10'/%3E%3Cpath d='M36 18 28 46'/%3E%3C/g%3E%3C/svg%3E">
+
+<!-- Evita flash de tema errado (FOUC) -->
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem("codelab-theme");
+      var theme = (stored === "dark" || stored === "light")
+        ? stored
+        : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "CodeLabOFC",
+  "description": "Ideias e projetos de tecnologia: aplicativos, extensões de navegador e ferramentas.",
+  "sameAs": ["https://www.tiktok.com/@CodeLabOFC"]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a class="brand" href="#inicio" aria-label="CodeLabOFC — início">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8.5 7.5 4 12l4.5 4.5"/><path d="M15.5 7.5 20 12l-4.5 4.5"/><path d="M13.5 5 10.5 19"/>
+        </svg>
+      </span>
+      <span class="brand-name">CodeLab<span>OFC</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#redes">Redes</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Alternar tema" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.1M12 19.3v2.1M4.3 4.3l1.5 1.5M18.2 18.2l1.5 1.5M2.6 12h2.1M19.3 12h2.1M4.3 19.7l1.5-1.5M18.2 5.8l1.5-1.5"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm header-cta" href="https://www.tiktok.com/@CodeLabOFC" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        <span>Seguir</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-inner">
+      <span class="badge reveal" data-delay="0"><span class="dot" aria-hidden="true"></span>@CodeLabOFC</span>
+      <h1 class="reveal" data-delay="80">Ideias e projetos de tecnologia.</h1>
+      <p class="lead reveal" data-delay="160">Publico o que construo do zero: aplicativos, extensões de navegador e ferramentas que resolvem problemas reais — do primeiro rascunho ao produto funcionando.</p>
+
+      <div class="hero-actions reveal" data-delay="240">
+        <a class="btn btn-primary" href="https://www.tiktok.com/@CodeLabOFC" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          Seguir no TikTok
+        </a>
+        <a class="btn btn-ghost" href="#projetos">Ver projetos</a>
+      </div>
+
+      <ul class="hero-meta reveal" data-delay="320">
+        <li><strong>03</strong><span>projetos publicados</span></li>
+        <li><strong>TikTok</strong><span>conteúdo e bastidores</span></li>
+        <li><strong>Aberto</strong><span>código no GitHub</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="projetos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Projetos</span>
+        <h2>O que eu construí</h2>
+        <p>Ferramentas criadas para resolver problemas concretos do dia a dia.</p>
+      </div>
+
+      <div class="grid">
+        <!-- Civitta -->
+        <a class="card reveal" href="https://civitta.netlify.app/" target="_blank" rel="noopener noreferrer">
+          <span class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8.6 14.6l2 2 4-4"/>
+              </svg>
+            </span>
+            <span class="tag">Aplicativo</span>
+          </span>
+          <h3>Civitta</h3>
+          <p>O Civitta organiza suas consultas, documentos e compromissos com o poder público — e avisa com som na hora certa, mesmo com o app fechado.</p>
+          <span class="card-cta">Acessar projeto
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            <span class="sr-only">(abre em nova aba)</span>
+          </span>
+        </a>
+
+        <!-- QRForge -->
+        <a class="card reveal" data-delay="120" href="https://qrforge-br.netlify.app/" target="_blank" rel="noopener noreferrer">
+          <span class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1.6"/>
+                <rect x="14" y="3" width="7" height="7" rx="1.6"/>
+                <rect x="3" y="14" width="7" height="7" rx="1.6"/>
+                <path d="M14 14h3v3h-3zM20.5 14v3M14 20.5h3M20.5 20.5h.01"/>
+              </svg>
+            </span>
+            <span class="tag">Ferramenta web</span>
+          </span>
+          <h3>QRForge</h3>
+          <p>Gerador de QR Code personalizado: escolha cores, formato e logo, e baixe em alta resolução. Tudo direto no navegador, sem cadastro e sem marca d'água.</p>
+          <span class="card-cta">Gerar QR Code
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            <span class="sr-only">(abre em nova aba)</span>
+          </span>
+        </a>
+
+        <!-- Digitar Automaticamente -->
+        <a class="card reveal" data-delay="240" href="https://github.com/lleonardo553/digitar-automaticamente" target="_blank" rel="noopener noreferrer">
+          <span class="card-top">
+            <span class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="6" width="19" height="12" rx="2.5"/>
+                <path d="M6.5 10h.01M10 10h.01M13.5 10h.01M17 10h.01M6.5 13.8h.01M17 13.8h.01M9.6 13.8h4.8"/>
+              </svg>
+            </span>
+            <span class="tag">Extensão de navegador</span>
+          </span>
+          <h3>Digitar Automaticamente</h3>
+          <p>Uma extensão que digita como uma pessoa. Perfeito para sites que impedem de colar textos.</p>
+          <span class="card-cta">Ver no GitHub
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            <span class="sr-only">(abre em nova aba)</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="redes">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Redes sociais</span>
+        <h2>Acompanhe o CodeLab</h2>
+        <p>Bastidores dos projetos, novidades e conteúdo técnico.</p>
+      </div>
+
+      <a class="social-row reveal" href="https://www.tiktok.com/@CodeLabOFC" target="_blank" rel="noopener noreferrer">
+        <span class="social-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </span>
+        <span class="social-info"><strong>TikTok</strong><span>@CodeLabOFC</span></span>
+        <span class="social-action">Seguir
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span id="year">2025</span> CodeLabOFC</p>
+    <p>Ideias e projetos de tecnologia</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+</body>
+</html>
